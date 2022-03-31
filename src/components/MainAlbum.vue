@@ -1,8 +1,9 @@
 <template>
     <main>
         <div class="my-container">
-            
-            <MainAlbumCard/>
+            <div v-for="(element, index) in albumList" :key="index">
+                <MainAlbumCard :album="element"/>
+            </div>
         </div>
     </main>
 </template>
@@ -24,7 +25,7 @@ export default {
     },
 
     created: function(){
-        // this.getApiLIst()
+        this.getApiLIst()
     },
 
     methods: {
@@ -46,11 +47,9 @@ export default {
 
 <style lang='scss' scoped>
     main{
-        height: 85vh;
         background-color: rgb(39, 39, 61);
 
         div.my-container{
-            height: 100%;
             width: 80%;
             margin: 0 auto;
             padding: 3rem 0;
