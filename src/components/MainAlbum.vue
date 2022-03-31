@@ -1,7 +1,9 @@
 <template>
     <main>
-        <MainAlbumCard/>
-
+        <div class="my-container">
+            
+            <MainAlbumCard/>
+        </div>
     </main>
 </template>
 
@@ -22,7 +24,7 @@ export default {
     },
 
     created: function(){
-        this.getApiLIst()
+        // this.getApiLIst()
     },
 
     methods: {
@@ -31,6 +33,7 @@ export default {
             .get('https://flynn.boolean.careers/exercises/api/array/music')
             .then((response) => {
                 console.table(response.data.response);
+                this.albumList = response.data.response;
             })
             .catch((error) => {
                 console.log(error)
@@ -42,5 +45,17 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+    main{
+        height: 85vh;
+        background-color: rgb(39, 39, 61);
+
+        div.my-container{
+            height: 100%;
+            width: 80%;
+            margin: 0 auto;
+            padding: 3rem 0;
+            background-color: aquamarine;
+        }
+    }
 
 </style>
